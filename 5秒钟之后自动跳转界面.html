@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五秒之后跳转界面</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <div></div>
+    <script>
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        btn.addEventListener('click', function () {
+            // location.href = 'http://www.baidu';
+        })
+        var time = 5;
+        setInterval(function () {
+            if (time == 0) {
+                // location.href = 'http://www.baidu';
+                location.assign('http://www.baidu'); //可以实后退的功能
+                location.replace('http://www.baidu');//没有记录历史的作用，不能实现界面的跳转功能
+                location.reload('http://www.baidu');//刷新的功能
+                location.reload(true); //强制刷新
+
+            } else {
+                div.innerHTML = '你将在 ' + time + ' 秒钟之后跳转到首页';
+                time--;
+            }
+
+        }, 1000)
+
+
+    </script>
+</body>
+
+</html>
